@@ -18,8 +18,6 @@ variable "sg_name" {
         "frontend-alb",
         # backend-alb
         "backend-alb",
-        # mongodb
-        "mongodb"
         ]
 }
 variable "sg_desc" {
