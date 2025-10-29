@@ -27,10 +27,16 @@ resource "terraform_data" "cluster" {
     host     = aws_instance.mongodb.private_ip
   }
 
+  provisioner "file" {
+    source = "bootstrap.sh"
+    destination = "/tmp/bootstrap.sh"
+  }
+
   provisioner "remote-exec" {
     # Bootstrap script called with private_ip of each node in the cluster
     inline = [
-      "echo Hello world"
+      "sudo chmod +x /tmp/bootstrap.sh",
+      "sudo sh /tmp/bootstrap.sh"
     ]
   }
 }
