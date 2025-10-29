@@ -7,7 +7,7 @@ resource "aws_instance" "mongodb" {
   tags = merge(
     var.bastion_tags,
     local.common_tags,{
-        Name = "bastion" # roboshop-dev 
+        Name = "mongodb" # roboshop-dev 
     }
   )
 }
