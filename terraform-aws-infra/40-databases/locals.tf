@@ -8,5 +8,6 @@ locals {
     Environment = var.environment
     Terraform = "True"
   }
-  public_subnet_ids = split(",", data.aws_ssm_parameter.bastion_subnet_id.value)[0]
+  #ublic_subnet_ids = split(",", data.aws_ssm_parameter.b_subnet_id.value)[0]
+  private_subnet_ids = split(",", data.aws_ssm_parameter.database_subnet_id.value)[0]
 }
