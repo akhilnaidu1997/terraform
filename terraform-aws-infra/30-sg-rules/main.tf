@@ -40,7 +40,7 @@ resource "aws_security_group_rule" "rabbitmq" {
   to_port           = 22
   protocol          = "tcp"
   security_group_id = local.bastion_sg_id
-  source_security_group_id = local.mongodb_sg_id
+  source_security_group_id = local.rabbitmq_sg_id
 }
 
 resource "aws_security_group_rule" "mysql" {
