@@ -14,6 +14,31 @@ resource "aws_instance" "bastion" {
   )
 }
 
+resource "terraform_data" "terraform" {
+  triggers_replace = [
+    aws_instance.bastion.id
+  ]
+
+  connection {
+    type     = "ssh"
+    user     = "ec2-user"
+    password = "DevOps321"
+    host     = aws_instance.bastion.private_ip
+  }
+
+  provisioner "file" {
+    source = "bastion.sh"
+    destination = "/tmp/bastion.sh"
+  }
+
+  provisioner "remote-exec" {
+    inline = [ 
+      "sudo chmod +x /tmp/bastion.sh",
+      "sudo sh /tmp/bastion.sh"
+     ]
+  }
+}
+
 # 1️⃣ Create IAM Role
 resource "aws_iam_role" "bastion_role" {
   name = "bastion-role"
