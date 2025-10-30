@@ -36,7 +36,7 @@ resource "terraform_data" "cluster" {
     # Bootstrap script called with private_ip of each node in the cluster
     inline = [
       "sudo chmod +x /tmp/bootstrap.sh",
-      "sudo sh /tmp/bootstrap.sh"
+      "sudo sh /tmp/bootstrap.sh mongodb"
     ]
   }
 }
