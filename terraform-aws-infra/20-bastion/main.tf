@@ -23,7 +23,7 @@ resource "terraform_data" "terraform" {
     type     = "ssh"
     user     = "ec2-user"
     password = "DevOps321"
-    host     = aws_instance.bastion.private_ip
+    host     = aws_instance.bastion.public_ip
   }
 
   provisioner "file" {
