@@ -6,6 +6,13 @@ resource "aws_instance" "bastion" {
   user_data = file("bastion.sh")
   iam_instance_profile = aws_iam_instance_profile.bastion_profile.name
 
+  root_block_device {
+    volume_size = 50
+    volume_type = "gp3"
+    delete_on_termination = true
+    encrypted = false
+  }
+
   tags = merge(
     var.bastion_tags,
     local.common_tags,{

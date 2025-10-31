@@ -226,3 +226,11 @@ resource "aws_iam_instance_profile" "ssm_instance_profile" {
   role = aws_iam_role.ssm_role.name
 }
 
+resource "aws_route53_record" "mongodb" {
+  zone_id = data.aws_route53_zone.zone_id.zone_id
+  name    = "mongodb-${var.environment}.${var.domain}"
+  type    = "A"
+  ttl     = 1
+  records = [aws_instance.mongodb.private_ip]
+  allow_overwrite = true 
+}
