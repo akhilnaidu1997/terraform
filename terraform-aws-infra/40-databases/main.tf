@@ -98,7 +98,7 @@ resource "aws_instance" "rabbitmq" {
   )
 }
 
-resource "terraform_data" "redis" {
+resource "terraform_data" "rabbitmq" {
   # Changes to any instance of the cluster requires re-provisioning
   triggers_replace = [
         aws_instance.rabbitmq.id
