@@ -4,7 +4,7 @@ variable "project" {
 variable "environment" {
     default = "dev"
 }
-variable "bastion_tags" {
+variable "database_tags" {
     type = map
     default = {}
 }

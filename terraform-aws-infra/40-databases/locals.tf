@@ -9,5 +9,5 @@ locals {
     Terraform = "True"
   }
   #ublic_subnet_ids = split(",", data.aws_ssm_parameter.b_subnet_id.value)[0]
-  #database_subnet_ids = split(",", data.aws_ssm_parameter.database_subnet_id.value)[0]
+  database_subnet_ids = split(",", data.aws_ssm_parameter.database_subnet_id.value)[0]
 }
