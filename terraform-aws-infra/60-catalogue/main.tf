@@ -3,7 +3,7 @@ resource "aws_instance" "catalogue" {
   instance_type = "t2.micro"
   vpc_security_group_ids = [ local.catalogue_sg_id ]
   subnet_id = local.private_subnet_ids
-  user_data = file("catalogue.sh")
+  #user_data = file("catalogue.sh")
   #iam_instance_profile = aws_iam_instance_profile.bastion_profile.name
 
   tags = merge(
