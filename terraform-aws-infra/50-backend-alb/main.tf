@@ -29,8 +29,8 @@ resource "aws_lb_listener" "backend_alb" {
 }
 
 resource "aws_route53_record" "backend_alb" {
-  zone_id = aws_route53_zone.zone_id.zone_id
-  name    = "*.backend-ald-${var.environment}-${var.domain}"
+  zone_id = data.aws_route53_zone.zone_id.zone_id
+  name    = "*.backend-alb-${var.environment}.${var.domain}"
   type    = "A"
 
   alias {
@@ -39,3 +39,4 @@ resource "aws_route53_record" "backend_alb" {
     evaluate_target_health = true
   }
 }
+
