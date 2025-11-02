@@ -69,3 +69,12 @@ resource "aws_security_group_rule" "catalogue" {
   security_group_id = local.catalogue_sg_id
   source_security_group_id = local.bastion_sg_id
 }
+
+resource "aws_security_group_rule" "catalogue-1" {
+  type              = "ingress"
+  from_port         = 8080
+  to_port           = 8080
+  protocol          = "tcp"
+  security_group_id = local.catalogue_sg_id
+  source_security_group_id = local.backend_alb_id
+}
