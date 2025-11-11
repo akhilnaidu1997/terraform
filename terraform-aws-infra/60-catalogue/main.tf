@@ -181,3 +181,20 @@ resource "aws_lb_listener_rule" "catalogue" {
 #     target_group_arn = aws_lb_target_group.catalogue.arn
 #   }
 # }
+
+# to delete instance we dont have terraform code hence ere we are using aws commandline to delete the instance.
+
+#aws ec2 terminate-instances --instance-ids i-0123456789abcdef0
+# want to terminate instance? local-exec since we want to delete catalogue that we can do from bastion
+# bastion is local here
+resource "terraform_data" "delete_ec2" {
+  triggers_replace = [
+    aws_instance.catalogue.id
+  ]
+  
+  provisioner "local-exec" {
+    command = " aws ec2 terminate-instances --instance-ids ${aws_instance.catalogue.id} " 
+  }
+
+  depends_on = [ aws_autoscaling_policy.catalogue ]
+}
