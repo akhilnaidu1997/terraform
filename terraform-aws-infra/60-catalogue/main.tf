@@ -127,7 +127,7 @@ resource "aws_autoscaling_group" "catalogue" {
   dynamic "tag" {
     for_each = merge(
         local.common_tags,{
-            Name = local.common_name
+            Name = "{local.common_name}-catalogue"
         }
     )
     content {
