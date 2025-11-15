@@ -25,7 +25,7 @@ variable "components" {
         payment = {
             priority = 50
         }
-        catalogue = {
+        frontend = {
             priority = 10
         }
     }
