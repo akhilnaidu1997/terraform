@@ -30,3 +30,4 @@ name = "/${var.project}/${var.environment}/listener_arn_frontend"
 data "aws_ssm_parameter" "vpc_id" {
 name = "/${var.project}/${var.environment}/vpc_id"
 }
+

@@ -7,7 +7,7 @@ module "components" {
 }
 
 resource "aws_route53_record" "records" {
-  for_each = var.components
+  for_each = module.components
   zone_id = data.aws_route53_zone.zone_id.zone_id
   name    = "${each.key}-${var.environment}.${var.domain}"
   type    = "A"
