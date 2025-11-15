@@ -18,6 +18,8 @@ variable "sg_name" {
         "frontend-alb",
         # backend-alb
         "backend-alb",
+        #openvpn
+        "openvpn"
         ]
 }
 variable "sg_desc" {
