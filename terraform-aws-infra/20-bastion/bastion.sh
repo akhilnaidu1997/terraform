@@ -11,8 +11,8 @@ sudo yum -y install terraform
 
 cd /home/ec2-user
 git clone https://github.com/akhilnaidu1997/terraform.git
-cd terraform
 chown ec2-user:ec2-user -R terraform
+cd terraform
 cd terraform-aws-infra/40-databases
 terraform init
 terraform apply -auto-approve
