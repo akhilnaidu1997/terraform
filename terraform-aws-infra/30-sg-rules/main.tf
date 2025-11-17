@@ -238,7 +238,7 @@ resource "aws_security_group_rule" "catalogue_cart" {
   from_port         = 80
   to_port           = 80
   protocol          = "tcp"
-  security_group_id = local.catalogue_sg_id
+  security_group_id = local.backend_alb_id
   source_security_group_id = local.cart_sg_id
 }
 
@@ -247,7 +247,7 @@ resource "aws_security_group_rule" "cart_payment" {
   from_port         = 80
   to_port           = 80
   protocol          = "tcp"
-  security_group_id = local.cart_sg_id
+  security_group_id = local.backend_alb_id
   source_security_group_id = local.payment_sg_id
 }
 
@@ -256,7 +256,7 @@ resource "aws_security_group_rule" "cart_user" {
   from_port         = 80
   to_port           = 80
   protocol          = "tcp"
-  security_group_id = local.cart_sg_id
+  security_group_id = local.backend_alb_id
   source_security_group_id = local.user_sg_id
 }
 
@@ -265,7 +265,7 @@ resource "aws_security_group_rule" "cart_shipping" {
   from_port         = 80
   to_port           = 80
   protocol          = "tcp"
-  security_group_id = local.cart_sg_id
+  security_group_id = local.backend_alb_id
   source_security_group_id = local.shipping_sg_id
 }
 
